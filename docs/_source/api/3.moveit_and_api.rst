@@ -26,13 +26,73 @@ MoveIt! 是ROS系统中集合了与移动操作相关的组件包的运动规划
 
 2.Moveit! 助手
 -------------------------------
+
+Moveit！的配置助手可以将编写好的urdf文件生成srdf文件，并从而生成Moveit!的功能包。
+
+**启动Moveit!助手**：
+::
+
+    roslaunch moveit_setup_assistant setup_assistant.launch
+
+Moveit!配置助手界面如下图所示：
+
 .. figure:: images/moveit_assistant.png
     :align: center
     :scale: 80%
 
-::
+**选择编辑已存在的Moveit!配置包**
 
-    roslaunch moveit_setup_assistant setup_assistant.launch
+.. figure:: images/Screenshot_2019-03-22_14-38-29.png
+    :align: center
+    :scale: 80%
+
+**配置加载完毕**
+
+.. figure:: images/Screenshot_2019-03-22_14-39-36.png
+    :align: center
+    :scale: 80%
+
+**生成碰撞矩阵**
+
+.. figure:: images/Screenshot_2019-03-22_14-39-45.png
+    :align: center
+    :scale: 80%
+
+**虚拟关节**
+
+.. figure:: images/Screenshot_2019-03-22_14-42-22.png
+    :align: center
+    :scale: 80%
+
+**规划组**
+
+.. figure:: images/Screenshot_2019-03-22_14-42-36.png
+    :align: center
+    :scale: 80%
+
+**定义机器人位姿**
+
+.. figure:: images/Screenshot_2019-03-22_14-42-44.png
+    :align: center
+    :scale: 80%
+
+**定义末端执行器**
+
+.. figure:: images/Screenshot_2019-03-22_14-42-52.png
+    :align: center
+    :scale: 80%
+
+**定义被动关节**
+
+.. figure:: images/Screenshot_2019-03-22_14-43-00.png
+    :align: center
+    :scale: 80%
+
+**生成配置文件**
+
+.. figure:: images/Screenshot_2019-03-22_14-43-44.png
+    :align: center
+    :scale: 80%
 
 3.Moveit! 的基本接口及使用
 -------------------------------
