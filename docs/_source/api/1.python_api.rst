@@ -1,0 +1,218 @@
+使用Python API开发机械臂
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.关节坐标系下的机械臂控制
+----------------------------
+
+::
+
+    #!/usr/bin/env python
+
+    import rospy
+    from gauss_python_api.gauss_api import Gauss
+
+    def test_move_joint(gauss):
+        joints = [1.5,0,0,0,0,0]      
+        try:
+            message = gauss.move_joints(joints)
+        except Exception as e:
+            print e
+        else:
+            print message
+
+    if __name__ == '__main__':
+    
+        rospy.init_node('gauss_move_joint')
+        g = Gauss()
+        test_move_joint(g)
+        rospy.spin()
+
+
+2.笛卡尔坐标系下的运动规划及控制
+---------------------------------
+
+::
+
+
+    #!/usr/bin/env python
+
+    import rospy
+    from gauss_python_api.gauss_api import Gauss
+
+    def test_move_pose(gauss):
+        pose = [300.5/1000, 4.0/1000, 338.3/1000, 0, 0, 0]
+        try:
+            message = gauss.move_pose(*pose)
+        except Exception as e:
+            print e
+        else:
+            print message
+
+    if __name__ == '__main__':
+    
+        rospy.init_node('gauss_move_pose')
+        g = Gauss()
+        test_move_pose(g)
+        rospy.spin()
+
+
+3.使用夹爪
+----------------------------
+
+::
+
+    from gauss_python_api.gauss_api import *
+    import rospy
+    rospy.init_node('gauss_generated_code_execution')
+    n = Gauss()
+    n.change_tool(TOOL_GRIPPER_1_ID)
+    n.open_gripper(TOOL_GRIPPER_1_ID, 100)
+    n.wait(5)
+    n.close_gripper(TOOL_GRIPPER_1_ID, 100)
+
+
+4.使用气泵
+----------------------------
+
+::
+
+    #!/usr/bin/env python
+    from gauss_python_api.gauss_api import *
+    import rospy
+    rospy.init_node('gauss_generated_code_execution')
+    n = Gauss()
+    n.change_tool(TOOL_VACUUM_PUMP_1_ID)
+    for count in range(3):
+    n.pull_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID) #吸气
+    n.wait(2)
+    n.push_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID)
+
+
+5.使用电磁铁
+----------------------------
+
+::
+
+    #!/usr/bin/env python
+    from gauss_python_api.gauss_api import *
+    import rospy
+    rospy.init_node('gauss_generated_code_execution')
+    n = Gauss()
+    n.change_tool(TOOL_ELECTROMAGNET_1_ID)
+    n.setup_electromagnet(TOOL_ELECTROMAGNET_1_ID, GPIO_2D)
+    n.activate_electromagnet(TOOL_ELECTROMAGNET_1_ID, GPIO_2D)
+    n.wait(5)
+    n.deactivate_electromagnet(TOOL_ELECTROMAGNET_1_ID, GPIO_2D)
+
+6.机械臂的状态查看
+----------------------------
+
+查看关节状态
+>>>>>>>>>>>>>>>>>
+
+::
+
+    #!/usr/bin/evn python
+
+    import rospy
+    from sensor_msgs.msg import JointState
+
+    def callback_joint_states(joint_states):
+        rospy.loginfo(list(joint_states.position))
+        
+    def listener():
+        rospy.init_node('node_name')
+        joint_state_subscriber = rospy.Subscriber('/joint_states', 
+                    JointState, callback_joint_states)
+
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+
+    if __name__ == '__main__': 
+        try: 
+            listener() 
+        except rospy.ROSInterruptException:
+            pass
+
+::
+
+    gauss@gauss-ros:~$ python joint_states_suscriber.py 
+    [INFO /node_name 2019-03-21 15:56:40]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.0667588438887831, 0.005061454830783556, -0.015184364492350666]
+    [INFO /node_name 2019-03-21 15:56:40]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.06283185307179585, 0.005061454830783556, -0.010122909661567111]
+    [INFO /node_name 2019-03-21 15:56:40]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.0667588438887831, 0.005061454830783556, -0.015184364492350666]
+    [INFO /node_name 2019-03-21 15:56:40]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.06283185307179585, 0.005061454830783556, -0.015184364492350666]
+    [INFO /node_name 2019-03-21 15:56:41]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.0667588438887831, 0.005061454830783556, -0.015184364492350666]
+    [INFO /node_name 2019-03-21 15:56:41]: [-0.0, 0.5215757805660216, -0.3208912496166717, -0.0667588438887831, 0.005061454830783556, -0.015184364492350666]
+
+查看空间状态
+>>>>>>>>>>>>>>>>>
+
+::
+
+    import rospy
+    from sensor_msgs.msg import JointState
+    from gauss_msgs.msg import RobotState
+
+    def callback_robot_state(robot_state):
+        rospy.loginfo("~~~~~~~~~~~~~~~~~~")
+        rospy.loginfo("heard: x %f", robot_state.position.x)
+        rospy.loginfo("heard: y %f", robot_state.position.y)
+        rospy.loginfo("heard: z %f", robot_state.position.z)
+        rospy.loginfo("heard: r %f", robot_state.rpy.roll)
+        rospy.loginfo("heard: p %f", robot_state.rpy.pitch)
+        rospy.loginfo("heard: y %F", robot_state.rpy.yaw)
+        
+    def listener():
+        rospy.init_node('node_name')
+        robot_state_subscriber = rospy.Subscriber('/gauss/robot_state', 
+                    RobotState, callback_robot_state)
+
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+
+    if __name__ == '__main__': 
+        try: 
+            listener() 
+        except rospy.ROSInterruptException:
+            pass
+
+执行结果如下：
+::
+
+    [INFO /node_name 2019-03-21 16:11:19]: ~~~~~~~~~~~~~~~~~~
+    [INFO /node_name 2019-03-21 16:11:19]: heard: x 0.178259
+    [INFO /node_name 2019-03-21 16:11:19]: heard: y 0.000009
+    [INFO /node_name 2019-03-21 16:11:19]: heard: z 0.466048
+    [INFO /node_name 2019-03-21 16:11:19]: heard: r -0.082013
+    [INFO /node_name 2019-03-21 16:11:19]: heard: p -0.205735
+    [INFO /node_name 2019-03-21 16:11:19]: heard: y 0.000345
+    [INFO /node_name 2019-03-21 16:11:19]: ~~~~~~~~~~~~~~~~~~
+    [INFO /node_name 2019-03-21 16:11:19]: heard: x 0.178259
+    [INFO /node_name 2019-03-21 16:11:19]: heard: y 0.000009
+    [INFO /node_name 2019-03-21 16:11:19]: heard: z 0.466048
+    [INFO /node_name 2019-03-21 16:11:19]: heard: r -0.082013
+    [INFO /node_name 2019-03-21 16:11:19]: heard: p -0.205735
+    [INFO /node_name 2019-03-21 16:11:19]: heard: y 0.000345
+
+
+7.示教模式切换
+----------------------------
+
+示教模式
+>>>>>>>>>>>>>>>>>
+
+::
+
+    gauss@gauss-ros:~$ rosservice call /gauss/activate_learning_mode "value: 1"
+    status: 200
+    message: "Activating learning mode"
+
+
+非示教模式
+>>>>>>>>>>>>>>>>>
+
+::
+
+    gauss@gauss-ros:~$ rosservice call /gauss/activate_learning_mode "value: 0"
+    status: 200
+    message: "Deactivating learning mode"
