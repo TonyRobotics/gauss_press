@@ -1,2 +1,34 @@
 4.ROS的基本使用和命令
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS常用指令
+~~~~~~~~~~~
+
+-  roscore:启动ROS master主服务
+-  rviz:可视化工具(地图、图片、点云、机器人模型... ...)
+-  rqt\_reconfigure:配置参数界面
+-  rqt\_graph:弹出所有节点/主题关系可视化界面
+-  rosnode list:列出正在运行的节点
+-  rosnode info node\_name:打印节点信息
+-  rosnode kill node\_name:停止某个节点
+-  rosrun package node:启动package包下的node节点
+-  rostopic list:列出正在运行的topic名字列表
+-  rostopic info:打印topic类型信息
+-  rostopic echo:打印topic实时数据信息
+-  roscd package:切换到package包所在路径
+-  rosed package abc.cpp:用编辑器打开package包下的abc.cpp文件
+-  rosservice list:列出正在运行的service名字列表
+-  rosservice info service\_name:打印service类型信息
+-  roslaunch launch\_file\_name:启动launch文件
+-  roslaunch-deps abc.launch:列出launch文件中依赖的package
+-  rosmsg list:已安装msg名字列表
+-  rosmsg show msg\_name:已安装msg类型信息
+-  rosmsg package 包名:包包含的所有msg名
+-  rospack list: 列出已安装的包
+-  rosstack list:列出已安装的元包
+-  rosbag record topic\_name -O abc.bag:记录topic到abc.bag文件
+-  rosbag play abc.bag:播放bag文件
+-  roswtf:打印错误检查
+-  rossrv list:已安装srv名字列表
+-  rossrv show srv\_name:已安装srv类型信息
+-  rossrv package 包名:包包含的所有srv名
