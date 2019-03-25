@@ -224,3 +224,11 @@
     gauss@gauss-ros:~$ rosservice call /gauss/activate_learning_mode "value: 0"
     status: 200
     message: "Deactivating learning mode"
+
+参考：
+1. http://www.downza.cn/soft/235505.html
+2. http://www.onlinedown.net/soft/20088.htm
+3. https://www.pythontab.com/
+4. https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
+5. http://cn.linux.vbird.org/
+6. https://bellard.org/jslinux/

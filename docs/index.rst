@@ -20,9 +20,9 @@
    _source/robotics/1.studio_learn.rst
    _source/robotics/2.software_architecture.rst
 
-第一天下午 ROS 的基本概念和简单命令的使用
+第一天下午 ROS基本概念和简单命令的使用
 --------------------------------------------------
-目标：了解ROS的基础概念，熟悉基本指令的使用
+目标：了解ROS基本概念，熟悉基本指令的使用
 
 .. toctree::
    :maxdepth: 2
