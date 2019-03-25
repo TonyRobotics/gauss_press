@@ -1,4 +1,4 @@
-2.机械臂的软件架构
+2. 高斯机械臂的软件架构
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.1.软件架构
@@ -31,3 +31,11 @@ ros_control就是ROS为用户提供的应用与机器人之间的中间件，包
 .. figure:: images/gazebo_ros_control.png
     :align: center
     :scale: 80%
+
+参考：
+
+1. http://wiki.ros.org/ros_control
+2. https://github.com/frankaemika/franka_ros
+3. https://github.com/ros-industrial/universal_robot
+4. https://github.com/RethinkRobotics/sawyer_robot
+

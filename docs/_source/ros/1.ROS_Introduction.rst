@@ -1,8 +1,8 @@
 3.ROS介绍和基本概念
 ===================
 
-ROS是什么
-~~~~~~~~~
+3.1 ROS是什么
+~~~~~~~~~~~~~~~
 
     官方定义：ROS(Robot Operating System)是面向机器人的开源的元操作系统(meta-operating system)。它能够提供类似传统操作系统的诸多功能,如硬件抽象、底层设备控制、常用功能实现、进程间消息传递和程序包管理等。此外,它还提供相关工具和库,用于获取、编译、编辑代码以及在多个计算机之间运行程序完成分布式计算。
 
@@ -11,8 +11,8 @@ ROS = 管道+工具+能力+生态
 .. figure:: images/ros_equation.png
    :alt: 
 
-ROS版本介绍
-~~~~~~~~~~~
+3.2 ROS版本介绍
+~~~~~~~~~~~~~~~~
 
 +---------+----------+---------+---------+---------+---------+
 | ROS版本 | electric | fuerte  | groovy  |  hydro  | indigo  |
@@ -30,8 +30,8 @@ ROS版本介绍
 |         | - 15.04 |          | - 17.04 |         |
 +---------+---------+----------+---------+---------+
 
-ROS安装方法
-~~~~~~~~~~~
+3.3 ROS安装方法
+~~~~~~~~~~~~~~~~~
 
 `官方教程 <http://wiki.ros.org/kinetic/Installation/Ubuntu>`__\ 具有十分详细的介绍。
 
@@ -106,8 +106,8 @@ ROS安装方法
 
     $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 
-ROS通信机制
-~~~~~~~~~~~
+3.4 ROS通信机制
+~~~~~~~~~~~~~~~~
 
 ROS整个通信机制的核心就是：发布订阅机制。例如下图：名为Talker的节点向/chatter主题发送字符串"hello"，另一个名为Listener的节点订阅/chatter主题，接收主题的字符串。
 
@@ -125,8 +125,8 @@ ROS整个通信机制的核心就是：发布订阅机制。例如下图：名�
    :width: 500px
    :align: center
 
-ROS包、节点的创建
-~~~~~~~~~~~~~~~~~
+3.5 ROS包、节点的创建
+~~~~~~~~~~~~~~~~~~~~~
 
 ROS中工作区、包、节点的概念类比：
 
@@ -320,8 +320,8 @@ ROS中工作区、包、节点的概念类比：
     $ roslaunch trd_driver trd_driver.launch --screen
 
 
-编写ROS订阅、发布节点(C++)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.6 编写ROS订阅、发布节点(C++)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 参照 **hello_world_node** 开发方式，创建一个名为 **talker_node** 的发布者节点
 和一个名为 **listener_node** 订阅者节点。分别加入以下源代码并编译运行。
@@ -460,21 +460,21 @@ CMakeLists.txt
 
 此时，可看到订阅者打印接收到的内容。
 
-编写ROS订阅、发布节点(Python)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.7 编写ROS订阅、发布节点(Python)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 请参照\ `官方教程 <http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29>`__\ 自行尝试。
 
-ROS学习网站
-~~~~~~~~~~~
+3.8 ROS学习网站
+~~~~~~~~~~~~~~~
 
 -  ROS维基网站： http://wiki.ros.org/
 -  ROS官方教程: http://wiki.ros.org/ROS/Tutorials
 -  ROS Answers论坛： `answers.ros.org <answers.ros.org>`__
 -  创客智造： https://www.ncnynl.com/
 
-ROS学习书籍
-~~~~~~~~~~~
+3.9 ROS学习书籍
+~~~~~~~~~~~~~~~~~
 
 1. A Gentle Introduction to ROS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
