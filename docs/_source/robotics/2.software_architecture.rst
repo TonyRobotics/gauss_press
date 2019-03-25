@@ -19,7 +19,7 @@ gauss_python_api 提供Python api，gauss_user_interface提供blockly功能和�
 
 3、蓝色矩形为其他功能包，gauss_ikfast_gauss_arm_plugin为运动学逆解插件，gauss_msgs为自定义的ROS消息，gauss_description为机械臂的URDF描述文件等。
 
-4、紫色矩形为整个机械臂的入库文件以及全局的配置文件，可以通过这个功能包一键启动所有功能包、启动gauss_driver等。
+4、紫色矩形 **gauss_bringup** 为整个机械臂的入库文件以及全局的配置文件，可以通过这个功能包一键启动所有功能包、启动gauss_driver等。
 
 2.2.ros_control
 ----------------

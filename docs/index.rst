@@ -11,13 +11,14 @@
 第一天上午 机械臂介绍和Studio使用
 ----------------------------------
 
-目标：了解高斯机械臂的功能和软件架构
+目标：了解工业机器人的使用场景、基本组成和原理，熟悉高斯机械臂的功能，了解机械臂的软件架构
 
 .. toctree::
    :maxdepth: 2
 
-   _source/studio/1.studio_learn.rst
-   _source/studio/2.software_architecture.rst
+   _source/robotics/0.arm_robotics.rst
+   _source/robotics/1.studio_learn.rst
+   _source/robotics/2.software_architecture.rst
 
 第一天下午 ROS 的基本概念和简单命令的使用
 --------------------------------------------------
@@ -31,7 +32,7 @@
 
 第二天上午 机械臂编程实践
 -------------------------------
-目标：用Python API 和 ROS API 开发机械臂
+目标：学会使用Python API 和 ROS API 开发机械臂
 
 .. toctree::
    :maxdepth: 2
