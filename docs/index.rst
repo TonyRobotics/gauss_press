@@ -29,7 +29,6 @@
 
    _source/ros/1.ROS_Introduction.rst
    _source/ros/2.ROS_command.rst
-   _source/ros/3.roboware.rst
 
 第二天上午 机械臂编程实践
 -------------------------------
@@ -51,3 +50,5 @@
 
   _source/simulation/1.rviz_and_urdf.rst
  
+  _source/ros/3.roboware.rst
+
