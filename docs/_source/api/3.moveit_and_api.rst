@@ -183,4 +183,5 @@ MoveGroupCommander 类常用的api列表如下：
 9. https://github.com/ros-planning/moveit
 10. http://docs.ros.org/kinetic/api/moveit_tutorials/html/
 11. http://docs.ros.org/kinetic/api/moveit_commander/html/index.html
+12. https://moveit.ros.org/robots/
 

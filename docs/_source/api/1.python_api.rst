@@ -86,9 +86,9 @@
     n = Gauss()
     n.change_tool(TOOL_VACUUM_PUMP_1_ID)
     for count in range(3):
-    n.pull_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID) #吸气
-    n.wait(2)
-    n.push_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID)
+        n.pull_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID)
+        n.wait(2)
+        n.push_air_vacuum_pump(TOOL_VACUUM_PUMP_1_ID)
 
 
 5.5.使用电磁铁
